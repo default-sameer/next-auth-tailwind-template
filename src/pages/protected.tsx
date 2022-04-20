@@ -21,7 +21,7 @@ const Protected: NextPage = () => {
     }, [session])
 
     // When rendering client side don't display anything until loading is complete
-    if (typeof window !== "undefined" && loading) return null
+    // if (typeof window !== "undefined" && loading) return null
 
     if (!session) {
         return (
