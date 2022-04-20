@@ -1,22 +1,33 @@
 
-# NextJS Typescript Tailwind Starter Template 
+# NextJS Next-Auth Typescript Tailwind Starter Template
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) typescript and tailwind.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), [`next-auth`](https://next-auth.js.org/)  typescript and tailwind.
 
 ## Getting Started
 
 First get started by cloning the repo:
 ```
-$ git clone https://github.com/default-sameer/nextjs-typescript-tailwind-starter-template.git
+$ https://github.com/default-sameer/next-auth-tailwind-template.git
 ```
+Install the Dependencies
+
+```bash
+yarn install
+# or
+npm install
+```
+
+Add your [`Github Client_Id and Client_Secret`](https://github.com/settings/apps/new) in a .env file
+
 
 Run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
+# or
+npm run dev
 ```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
