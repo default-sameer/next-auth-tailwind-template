@@ -23,6 +23,8 @@ const Protected: NextPage = () => {
     // When rendering client side don't display anything until loading is complete
     // if (typeof window !== "undefined" && loading) return null
 
+    // if (status === 'unauthenticated') return null
+
     if (!session) {
         return (
             <AccessDenied />

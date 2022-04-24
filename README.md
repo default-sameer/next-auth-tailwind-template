@@ -1,7 +1,7 @@
 
-# NextJS Next-Auth Typescript Tailwind Starter Template
+# NextJS, Next-Auth, Prisma, Typescript & Tailwind Starter Template
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), [`next-auth`](https://next-auth.js.org/)  typescript and tailwind.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), [`next-auth`](https://next-auth.js.org/), [`prisma`](https://prisma.io) ,  typescript and tailwind.
 
 ## Getting Started
 
@@ -26,6 +26,21 @@ Run the development server:
 yarn dev
 # or
 npm run dev
+```
+
+Initialize Prisma
+for local development sqlite is used
+```zsh
+npx prisma init --datasource-provider sqlite  
+```
+
+then to push the changes to database
+```zsh
+npx prisma db push
+```
+To open with prisma studio
+```zsh
+ npx prisma studio
 ```
 
 

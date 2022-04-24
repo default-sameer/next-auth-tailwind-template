@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { BASE_URL } from "../utils/config";
 
 export default function Navbar(){
     const {data:session, status} = useSession();
+    
     const loading = status === "loading";
+    
     return(
         <>
             <div className="navbar bg-base-100">
@@ -30,6 +33,7 @@ export default function Navbar(){
                     <Link href='/'>
                     <a className="btn btn-ghost normal-case text-xl">Next-Auth</a>
                     </Link>
+                    {/* {status === 'authenticated' ? (<>Authenticated</>) : (<>Unauthenticated</>)} */}
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
@@ -51,6 +55,7 @@ export default function Navbar(){
                     <Link href={`/api/auth/signin`}>
                         <a onClick={(e) => {
                             e.preventDefault()
+                            // signIn('github',{callbackUrl: `${BASE_URL}/protected`})
                             signIn()
                         }} className="btn">Log In</a>
                     </Link>
@@ -60,24 +65,26 @@ export default function Navbar(){
                     <div className="dropdown dropdown-end ml-2">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                {session.user.image &&(
+                                {/* {session.user.image &&(
                                     <img src={`${session.user.image}`} />
-                                )}
+                                )} */}
+
+                                        {session.user.image ? (<> <img src={`${session.user.image}`} /></>) : (<> <img src={`./favicon.ico`} /></>)}
                             </div>
                         </label>
                         <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                             <li>
+                                <Link href={`/user/profile`}>
                                 <a className="justify-between">
                                     Profile
-                                    <span className="badge">New</span>
                                 </a>
+                                </Link>
                             </li>
-                            <li><a>Settings</a></li>
                             <li>
                             <Link href={`/api/auth/signout`}>
                                 <a onClick={(e) => {
                                     e.preventDefault()
-                                    signOut()
+                                    signOut({callbackUrl: 'http://localhost:3000'})
                                 }}>Logout</a>
                             </Link>
                             </li>
